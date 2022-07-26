@@ -3,23 +3,20 @@ from django.core.mail import send_mail
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import status, viewsets, filters, permissions
+from rest_framework import filters, permissions, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from reviews.models import Category, Genre, Review, Title, User
 
-from reviews.models import User, Category, Genre, Title, Review
 from .custom_viewsets import ListCreateDestroyViewSet
 from .filters import TitleFilter
-from .permissions import (
-    IsAdmin, IsAuthor, ReadOnly, IsModerator, IsSuperuser
-)
-from .serializers import (
-    SignUpSerializer, TokenSerializer, UserSerializer, CategorySerializer,
-    GenreSerializer, TitleSerializer, MeSerializer, CommentSerializer,
-    ReviewSerializer, TitleGetSerializer
-)
+from .permissions import IsAdmin, IsAuthor, IsModerator, IsSuperuser, ReadOnly
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, MeSerializer, ReviewSerializer,
+                          SignUpSerializer, TitleGetSerializer,
+                          TitleSerializer, TokenSerializer, UserSerializer)
 
 EMAIL_NAME = 'userverification'
 DOMAIN_NAME = 'yamdb.com'
