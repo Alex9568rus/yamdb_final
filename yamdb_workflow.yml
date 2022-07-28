@@ -80,6 +80,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            sudo docker pull ${{ secrets.USERNAME }}/final_yamdb:latest
             sudo docker-copmose stop
             sudo docker-compose rm web
             touch .env
