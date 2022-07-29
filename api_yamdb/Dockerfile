@@ -1,14 +1,13 @@
 FROM python:3.7-slim
 
+LABEL author="Zhbakov A" version=2
+
 WORKDIR /app
 
-COPY requirements.txt /app
+COPY requirements.txt .
 
-RUN python3 -m pip install --upgrade pip
-RUN pip install -r requirements.txt --no-cache-dir
+RUN pip install -r requirements.txt --upgrade pip
 
 COPY .. .
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000"]
-
-LABEL author="Zhbakov Alex" version=2

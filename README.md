@@ -42,7 +42,7 @@
 
 1. ___Клонировать репозиторий:___
 
-`~$ git clone git@github.com:Alex9568rus/yamdb_final.git`
+` git clone git@github.com:Alex9568rus/yamdb_final.git`
 
 2. ___Добавить секретные данные:___
 
@@ -50,6 +50,7 @@
 и добавить поочередно следующие переменные:
 | Название переменной | Значение |
 |:----:|:----:|
+|SECRET_KEY| SECRET_KEY из api_ymdb/api_ymdb/settings.py|
 |YOUR_TELEGRAM_ID|ID чата, в который будут приходить уведомления|
 |TELEGRAM_BOT_TOKEN|Токен телеграм-бота|
 |USERNAME|Ваш логин на DockerHub|
@@ -76,13 +77,17 @@
 При git pus запускается скрипт GitHub actions который выполняет автоматический deploy на сервер.
 
 После успешного деплоя необходимо на сервере выполнить следующие дествия:
-* `~$ sudo docker-compose exec web python manage.py migrate` - сделать миграции;
-* `~$ sudo docker-compose exec web python manage.py createsuperuser` - создать суперюзера;
-* `~$ sudo docker-compose exec web python manage.py collectstatic --no-input` - сабрать статику
+* ` sudo docker-compose exec web python manage.py migrate` - сделать миграции;
+* ` sudo docker-compose exec web python manage.py createsuperuser` - создать суперюзера;
+* ` sudo docker-compose exec web python manage.py collectstatic --no-input` - сабрать статику
 
 Чтобы создать резервную копию базы данных воспользуйтесь командой:
 
-`~$ sudo docker-compose exec web python manage.py dumpdata > fixtures.json`
+` sudo docker-compose exec web python manage.py dumpdata > fixtures.json`
+
+Документация доступна по адресам: 
+* _http://51.250.98.176/redoc/_ (или _http://zhbakov1995.hopto.org/redoc/_)
+* _http://ваш_HOST/redoc/_ (только после запуска проекта )
 
 ---
 
