@@ -85,8 +85,7 @@
 
 ` sudo docker-compose exec web python manage.py dumpdata > fixtures.json`
 
-Документация доступна по адресам: 
-* _http://51.250.98.176/redoc/_ (или _http://zhbakov1995.hopto.org/redoc/_)
+Документация доступна по адресу: 
 * _http://ваш_HOST/redoc/_ (только после запуска проекта )
 
 ---
